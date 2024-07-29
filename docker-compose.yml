@@ -1,0 +1,23 @@
+services:
+  web:
+    build: ./task_manager
+    env_file:
+      - ./task_manager/.env
+    volumes:
+      - .:/app
+    working_dir: /app
+    depends_on:
+      - db
+    ports:
+      - "8000:8000"
+
+
+  db:
+    image: postgres:latest
+    env_file:
+      - .env
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+volumes:
+  pgdata:
