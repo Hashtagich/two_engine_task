@@ -97,7 +97,7 @@ celerybeat-schedule.*
 
 # Environments
 .env
-.env.docker
+db.env
 .venv
 env/
 venv/
